@@ -1,0 +1,23 @@
+meta {
+  name: delete
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:83/api/users/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 5
+}
+
+body:json {
+  {
+    "email": "mrome@webnet.fr",
+    "firstName": "Mathis",
+    "lastName": "ROME"
+  }
+}

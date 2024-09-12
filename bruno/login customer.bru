@@ -1,0 +1,18 @@
+meta {
+  name: login customer
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:83/api/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "mathis.rome@icloud.com",
+    "password": "mathis"
+  }
+}

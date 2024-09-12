@@ -1,0 +1,18 @@
+meta {
+  name: login gateway
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:84/api/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "mathis.rome@icloud.com",
+    "password": "mathis"
+  }
+}
