@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class EntryController extends AbstractController
@@ -21,7 +22,6 @@ class EntryController extends AbstractController
         string                 $resource,
         EntityManagerInterface $em,
         HttpClientInterface    $client,
-        JwtService             $jwtService
     ): Response
     {
         $service = $em->getRepository(Service::class)->findOneBy([

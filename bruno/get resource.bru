@@ -5,17 +5,13 @@ meta {
 }
 
 get {
-  url: http://localhost:84/api/customer/1.0/users?role
+  url: http://localhost:84/api/customer/1.0/users
   body: multipartForm
   auth: bearer
 }
 
-params:query {
-  role: 
-}
-
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJNYXRoaXMiLCJsYXN0TmFtZSI6IlJvbWUiLCJlbWFpbCI6Im1hdGhpcy5yb21lQGljbG91ZC5jb20iLCJpYXQiOnsiZGF0ZSI6IjIwMjQtMDktMTIgMTQ6MDg6MjEuNzAzMzg3IiwidGltZXpvbmVfdHlwZSI6MywidGltZXpvbmUiOiJFdXJvcGVcL1BhcmlzIn19.AffZYIoGaNfLNDfW9mxQ2DPnZX0ebMsJYCpkfb4x1DQ
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJNYXRoaXMiLCJsYXN0TmFtZSI6IlJvbWUiLCJlbWFpbCI6Im1hdGhpcy5yb21lQGljbG91ZC5jb20iLCJpYXQiOnsiZGF0ZSI6IjIwMjQtMTAtMTAgMDg6NTI6NTAuNzgzOTcyIiwidGltZXpvbmVfdHlwZSI6MywidGltZXpvbmUiOiJFdXJvcGVcL1BhcmlzIn19.uGDj1GLiecwXlYoBAnesR_rtIn4LMb-weU_waMZGR1c
 }
 
 body:json {

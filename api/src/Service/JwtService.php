@@ -69,6 +69,7 @@ class JwtService
         // Implementation for decoding JWT
         list(, $base64UrlPayload,) = explode('.', $token);
         $payload = $this->base64UrlDecode($base64UrlPayload);
+
         return json_decode($payload, true);
     }
 }

@@ -29,7 +29,15 @@ class AccessTokenHandler implements AccessTokenHandlerInterface
             throw new BadCredentialsException('Invalid credentials.');
         }
 
-        if (false === $this->jwtService->validateToken($accessToken)) {
+        $payload = $this->jwtService->decodeToken($accessToken);
+
+
+        $iat = new \DateTimeImmutable($payload["iat"]["date"]);
+        $exp = $iat->modify("+1 hour");
+
+        $now = new \DateTimeImmutable();
+
+        if (false === ($this->jwtService->validateToken($accessToken) && $exp > $now)) {
             throw new BadCredentialsException('Invalid credentials.');
         }
 
