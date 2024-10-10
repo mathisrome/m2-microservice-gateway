@@ -2,8 +2,10 @@
 
 namespace App\Security;
 
+use App\Entity\Application;
 use App\Repository\AccessTokenRepository;
 use App\Service\JwtService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Http\AccessToken\AccessTokenHandlerInterface;
@@ -16,6 +18,7 @@ class AccessTokenHandler implements AccessTokenHandlerInterface
 {
     public function __construct(
         private JwtService   $jwtService,
+        private EntityManagerInterface $em
     )
     {
     }
@@ -29,8 +32,13 @@ class AccessTokenHandler implements AccessTokenHandlerInterface
             throw new BadCredentialsException('Invalid credentials.');
         }
 
-        $payload = $this->jwtService->decodeToken($accessToken);
+        $application = $this->em->getRepository(Application::class)->findOneByApiKey($accessToken);
 
+        if (!empty($application)) {
+            return new UserBadge('api');
+        }
+
+        $payload = $this->jwtService->decodeToken($accessToken);
 
         $exp = new \DateTimeImmutable($payload["exp"]["date"]);
         $now = new \DateTimeImmutable();

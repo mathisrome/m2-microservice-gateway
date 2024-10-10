@@ -14,7 +14,6 @@ class LoginController extends AbstractController
     #[Route('/login', name: 'login')]
     public function index(
         Request $request,
-        JwtService $jwtService,
         HttpClientInterface $httpClient
     ): JsonResponse
     {
