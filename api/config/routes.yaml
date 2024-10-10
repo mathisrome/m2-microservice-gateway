@@ -5,3 +5,4 @@ api:
   type: attribute
   name_prefix: api_
   prefix: api
+  defaults: {_format: json}

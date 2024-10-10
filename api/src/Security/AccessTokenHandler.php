@@ -32,9 +32,7 @@ class AccessTokenHandler implements AccessTokenHandlerInterface
         $payload = $this->jwtService->decodeToken($accessToken);
 
 
-        $iat = new \DateTimeImmutable($payload["iat"]["date"]);
-        $exp = $iat->modify("+1 hour");
-
+        $exp = new \DateTimeImmutable($payload["exp"]["date"]);
         $now = new \DateTimeImmutable();
 
         if (false === ($this->jwtService->validateToken($accessToken) && $exp > $now)) {
