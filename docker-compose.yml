@@ -45,13 +45,6 @@ services:
       - nw.frontend
     container_name: gateway-symfony-nginx
 
-  mailcatcher:
-    restart: on-failure
-    image: schickling/mailcatcher
-    ports: [ 1025, 1080:1080 ]
-    networks:
-      - nw.backend
-
 networks:
   nw.microservices:
     external: true
