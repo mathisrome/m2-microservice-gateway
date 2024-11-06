@@ -4,22 +4,25 @@ meta {
   seq: 3
 }
 
-get {
-  url: http://localhost:84/api/customer/1.0/users
-  body: multipartForm
+post {
+  url: http://localhost:84/api/order/1.0/orders
+  body: json
   auth: bearer
 }
 
 auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJNYXRoaXMiLCJsYXN0TmFtZSI6IlJvbWUiLCJlbWFpbCI6Im1hdGhpcy5yb21lQGljbG91ZC5jb20iLCJpYXQiOnsiZGF0ZSI6IjIwMjQtMTAtMTAgMDg6NTk6MjIuNjY5MDQ3IiwidGltZXpvbmVfdHlwZSI6MywidGltZXpvbmUiOiJFdXJvcGVcL1BhcmlzIn0sImV4cCI6eyJkYXRlIjoiMjAyNC0xMC0xMCAwOTowMDoyMi42NjkwNDciLCJ0aW1lem9uZV90eXBlIjozLCJ0aW1lem9uZSI6IkV1cm9wZVwvUGFyaXMifX0.RG5KldwJaeGuEybQzbgr70IEVgRzSMvS5zGGN_bXyYA
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJNYXRoaXMiLCJsYXN0TmFtZSI6IlJPTUUiLCJlbWFpbCI6Im1yb21lQHdlYm5ldC5mciIsInV1aWQiOiJkNjQ2OGYwYS01ZjAzLTQwM2YtYTBjNy00YmFlOTZiODZiOWYiLCJpYXQiOnsiZGF0ZSI6IjIwMjQtMTEtMDYgMTE6MDM6MzguOTU5Mzk1IiwidGltZXpvbmVfdHlwZSI6MywidGltZXpvbmUiOiJFdXJvcGVcL1BhcmlzIn0sImV4cCI6eyJkYXRlIjoiMjAyNC0xMS0wNiAxMjowMzozOC45NTkzOTUiLCJ0aW1lem9uZV90eXBlIjozLCJ0aW1lem9uZSI6IkV1cm9wZVwvUGFyaXMifX0.GdVmO4ohNbKhAzg1IQ9G5xrbWbDX57GB-xnlqzrTPgQ
 }
 
 body:json {
   {
-    "email": "mrome@webnet.ffdsqfdsq",
-    "firstName": "Mathis",
-    "lastName": "ROMEeeee",
-    "password": "test"
+    "user": "d6468f0a-5f03-403f-a0c7-4bae96b86b9f",
+    "details": [
+      {
+        "plate": "b05cd765-2bac-4d14-b6a1-496b4b7c69f8",
+        "quantity": 1
+      }
+    ]
   }
 }
 
@@ -28,9 +31,5 @@ body:form-urlencoded {
 }
 
 body:multipart-form {
-  readme: @file(/Users/mathisrome/PersonalProject/esgi/cinquieme_annee/web-ia/vue-app/README.md)
-  email: test@test.com
-  firstName: test
-  lastName: test
-  password: test
+  username: test
 }

@@ -1,0 +1,23 @@
+meta {
+  name: update
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:81/api/plates/:id
+  body: json
+  auth: none
+}
+
+params:path {
+  id: 8
+}
+
+body:json {
+  {
+    "name": "valider",
+    "plateType": 1,
+    "price": 100
+  }
+}

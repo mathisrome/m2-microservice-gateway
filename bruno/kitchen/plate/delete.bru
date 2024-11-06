@@ -1,0 +1,23 @@
+meta {
+  name: delete
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://localhost:81/api/plates/:id
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+    "name": "valider",
+    "plateType": 1,
+    "price": 100
+  }
+}

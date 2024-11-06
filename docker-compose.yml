@@ -1,5 +1,5 @@
 services:
-  mariadb:
+  gateway-mariadb:
     image: mariadb:11.1.2
     restart: unless-stopped
     volumes:
@@ -11,7 +11,7 @@ services:
     networks:
       - nw.backend
 
-  symfony-php:
+  gateway-symfony-php:
     build:
       context: ./infra/dev/symfony-php
     volumes:
@@ -21,14 +21,14 @@ services:
     environment:
       APP_ENV: dev
     depends_on:
-      - mariadb
+      - gateway-mariadb
     tty: true
     networks:
       - nw.microservices
       - nw.backend
     container_name: gateway-symfony-php
 
-  symfony-nginx:
+  gateway-symfony-nginx:
     image: nginx:latest
     volumes:
       - ./infra/volumes/dev/logs/nginx:/var/log/nginx
@@ -37,13 +37,11 @@ services:
     ports:
       - "84:80"
     depends_on:
-      - symfony-php
+      - gateway-symfony-php
     tty: true
     networks:
       - nw.microservices
       - nw.backend
-      - nw.frontend
-    container_name: gateway-symfony-nginx
 
 networks:
   nw.microservices:

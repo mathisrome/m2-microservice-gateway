@@ -1,0 +1,23 @@
+meta {
+  name: create
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost/api/orders
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "user": "d6468f0a-5f03-403f-a0c7-4bae96b86b9f",
+    "details": [
+      {
+        "quantity": 3,
+        "plate": "bba420aa-6843-4da0-aedc-21724c6bad1c"
+      }
+    ]
+  }
+}
