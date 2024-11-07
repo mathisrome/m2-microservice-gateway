@@ -14,7 +14,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class EntryController extends AbstractController
 {
-    #[Route('/{namespace}/{version}/{resource}', name: 'entry', requirements: ['resource' => '.+', 'version' => '[0-9]{1,2}\.[0-9]{1}'], methods: ['POST', 'GET', 'DELETE', 'PUT'])]
+    #[Route('/{namespace}/{version}/{resource}', name: 'entry', requirements: ['resource' => '.+', 'version' => '[0-9]{1,2}\.[0-9]{1}'], methods: ['POST', 'GET', 'DELETE', 'PUT', 'PATCH'])]
     public function index(
         Request                $request,
         string                 $namespace,
